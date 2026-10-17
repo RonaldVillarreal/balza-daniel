@@ -121,10 +121,13 @@ img { background: linear-gradient(135deg, #2a2723, #3b362f 60%, #2a2723); }
   position: fixed; top: 0; left: 0; right: 0; z-index: 60;
   display: flex; align-items: center; justify-content: space-between;
   padding: 18px var(--pad);
-  mix-blend-mode: difference; color: #fff;
+  color: var(--arena);
+  /* degradado sutil arriba: el menú se lee sobre cualquier foto (antes con blend "difference" se perdía en cielos grises) */
+  background-image: linear-gradient(180deg, rgba(21,20,18,.55), rgba(21,20,18,0));
+  text-shadow: 0 1px 12px rgba(0,0,0,.35);
   transition: top .6s var(--ease), background-color .4s;
 }
-.header.is-scrolled { mix-blend-mode: normal; background-color: rgba(21, 20, 18, .85); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.header.is-scrolled { background-image: none; text-shadow: none; background-color: rgba(21, 20, 18, .85); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
 .header.is-hidden { top: -120px; }
 .header__logo { display: flex; align-items: center; gap: 14px; }
 .header__mark { width: 34px; height: 34px; }
@@ -137,7 +140,8 @@ img { background: linear-gradient(135deg, #2a2723, #3b362f 60%, #2a2723); }
   transform: scaleX(0); transform-origin: right; transition: transform .5s var(--ease);
 }
 .header__nav a:not(.btn):hover::after { transform: scaleX(1); transform-origin: left; }
-.header__nav .btn--line { border-color: rgba(255,255,255,.4); }
+.header__nav { font-weight: 500; }
+.header__nav .btn--line { border-color: rgba(237,231,221,.6); }
 .header__nav .btn--line:hover { background: #fff; color: #000; }
 
 .burger { display: none; width: 44px; height: 44px; background: none; border: 0; color: inherit; cursor: pointer; position: relative; }
@@ -153,7 +157,7 @@ img { background: linear-gradient(135deg, #2a2723, #3b362f 60%, #2a2723); }
   padding: 110px var(--pad) calc(28px + env(safe-area-inset-bottom));
   clip-path: inset(0 0 100% 0); visibility: hidden;
 }
-.menu__list a { display: flex; align-items: baseline; gap: 16px; font-size: clamp(44px, 13vw, 90px); font-weight: 300; font-stretch: 110%; text-transform: uppercase; letter-spacing: -.03em; line-height: 1.08; }
+.menu__list a { display: flex; align-items: baseline; gap: 16px; padding: 10px 0; font-size: clamp(28px, 8.5vw, 56px); font-weight: 300; font-stretch: 110%; text-transform: uppercase; letter-spacing: -.03em; line-height: 1.08; }
 .menu__list small { font-size: 12px; color: var(--cobre); letter-spacing: .1em; }
 .menu__list li { overflow: hidden; border-bottom: 1px solid var(--line); }
 .menu__foot { display: flex; flex-wrap: wrap; gap: 12px 24px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--piedra); }
