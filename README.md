@@ -46,5 +46,5 @@ En mobile se mantiene el scroll nativo del dedo (Lenis solo suaviza la rueda del
    - Desde Lumion / Twinmotion / D5 Render: un "camera path" lento de fachada al atardecer es ideal.
    - Mientras tanto se puede usar un clip gratis de Pexels o Mixkit ("modern house drone").
 2. **Fotos**: hoy son de Unsplash (temporales). Reemplazá cada `src="https://images.unsplash.com/..."` por `/img/tu-foto.jpg`. Usá JPG/WebP de ~1600 px de ancho.
-3. **Datos**: WhatsApp (`584140000000`), email, dirección, Instagram, cifras y nombres de proyectos son de ejemplo.
+3. **Datos**: WhatsApp (`584125878540`, real), email, dirección, Instagram, cifras y nombres de proyectos son de ejemplo.
 4. **Colores**: cambian todos desde `:root` en `src/style.css`.

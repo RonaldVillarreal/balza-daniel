@@ -225,8 +225,12 @@ img { background: linear-gradient(135deg, #2a2723, #3b362f 60%, #2a2723); }
 .project:nth-child(even) { margin-bottom: 9vh; }
 .project__img { overflow: hidden; aspect-ratio: 4 / 5; border-radius: 2px; }
 .project:nth-child(3n+1) .project__img { aspect-ratio: 5 / 4; }
-.project__img img { transform: scale(1.15); transition: transform 1.2s var(--ease-out); }
-.project:hover .project__img img { transform: scale(1.06); }
+.project__img img { transform: scale(1.15); will-change: transform; }
+/* el zoom con transición solo con mouse: en touch peleaba con las animaciones de scroll y hacía temblar las fotos */
+@media (hover: hover) and (pointer: fine) {
+  .project__img img { transition: transform 1.2s var(--ease-out); }
+  .project:hover .project__img img { transform: scale(1.06); }
+}
 .project__meta { display: grid; grid-template-columns: auto 1fr; column-gap: 18px; padding-top: 18px; border-top: 1px solid rgba(21,20,18,.15); margin-top: 16px; }
 .project__meta span { font-size: 12px; color: var(--cobre); padding-top: 8px; grid-row: span 2; }
 .project__meta h3 { font-size: clamp(22px, 2.2vw, 34px); font-weight: 400; font-stretch: 110%; letter-spacing: -.02em; text-transform: uppercase; line-height: 1.1; }
@@ -354,6 +358,10 @@ img { background: linear-gradient(135deg, #2a2723, #3b362f 60%, #2a2723); }
 }
 
 @media (max-width: 768px) {
+  /* preloader: el texto va arriba para no chocar con el contador */
+  .loader__label { bottom: auto; top: calc(var(--pad) + env(safe-area-inset-top)); }
+  .loader__count { bottom: calc(var(--pad) + env(safe-area-inset-bottom)); }
+
   .header { padding: 12px var(--pad); }
   .header__nav { display: none; }
   .burger { display: block; }

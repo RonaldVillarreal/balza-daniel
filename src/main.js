@@ -4,6 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
 gsap.registerPlugin(ScrollTrigger);
+// en mobile la barra del navegador cambia el alto al scrollear; sin esto ScrollTrigger recalcula y las animaciones saltan
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 const $ = (s, c = document) => c.querySelector(s);
 const $$ = (s, c = document) => [...c.querySelectorAll(s)];
@@ -129,10 +131,10 @@ function projects() {
     $$('.project').forEach((p) => {
       gsap.fromTo($('.project__img', p), { clipPath: 'inset(18% 10% 18% 10%)' }, {
         clipPath: 'inset(0% 0% 0% 0%)', ease: 'power2.out',
-        scrollTrigger: { trigger: p, start: 'top 90%', end: 'top 35%', scrub: 1 },
+        scrollTrigger: { trigger: p, start: 'top 90%', end: 'top 35%', scrub: true },
       });
       gsap.fromTo($('img', p), { scale: 1.3 }, {
-        scale: 1.05, ease: 'none',
+        scale: 1.05, ease: 'none', force3D: true,
         scrollTrigger: { trigger: p, start: 'top bottom', end: 'bottom top', scrub: true },
       });
     });
