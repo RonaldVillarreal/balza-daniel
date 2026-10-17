@@ -145,10 +145,31 @@ function projects() {
    Banda: la ventana con arco se abre hasta pantalla completa
 --------------------------------------------------------- */
 function revealBand() {
+  // El arco mantiene su forma todo el recorrido: el radio es "infinito" (el navegador lo
+  // limita a medio ancho), y solo cambian los recortes. Se calcula en px relativo a la
+  // pantalla porque el marco es más grande que el viewport.
+  const frame = $('.reveal-band__frame');
+  const ease = gsap.parseEase('power1.inOut');
+  const state = { p: 0 };
+  const setClip = () => {
+    const vw = window.innerWidth, vh = window.innerHeight;
+    const mob = vw <= 768;
+    const offX = (frame.offsetWidth - vw) / 2;
+    const offY = frame.offsetHeight - vh;
+    const k = 1 - ease(state.p);
+    // al final el recorte llega a los bordes del marco (fuera de pantalla), así las curvas no se ven
+    const top = (offY + vh * (mob ? 0.32 : 0.3)) * k;
+    const side = (offX + vw * (mob ? 0.18 : 0.32)) * k;
+    const bottom = vh * (mob ? 0.32 : 0.3) * k;
+    frame.style.clipPath = `inset(${top}px ${side}px ${bottom}px ${side}px round 9999px 9999px 4px 4px)`;
+  };
+  setClip();
+  ScrollTrigger.addEventListener('refresh', setClip);
+
   const tl = gsap.timeline({
     scrollTrigger: { trigger: '.reveal-band', start: 'top top', end: 'bottom bottom', scrub: 1 },
   });
-  tl.to('.reveal-band__frame', { clipPath: 'inset(0% 0% 0% 0% round 0px 0px 0px 0px)', ease: 'power1.inOut' }, 0)
+  tl.to(state, { p: 1, ease: 'none', onUpdate: setClip }, 0)
     .to('.reveal-band__frame img', { scale: 1, ease: 'none' }, 0)
     .fromTo('.reveal-band__text span', { yPercent: 60, opacity: 0 }, { yPercent: 0, opacity: 1, stagger: 0.1, ease: 'power2.out', duration: 0.4 }, 0.15);
 }
