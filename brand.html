@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Daniel Balza — Identidad</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{--carbon:#151412;--grafito:#1f1d1a;--piedra:#6e6a62;--arena:#ede7dd;--niebla:#d9d2c5;--cobre:#c8794a;--musgo:#4f5a45}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--carbon);color:var(--arena);font-family:Archivo,Arial,sans-serif;font-weight:350;line-height:1.5}
+  em{font-family:"Instrument Serif",serif;font-style:italic;color:var(--cobre);text-transform:none;letter-spacing:0}
+  section{padding:72px clamp(16px,5vw,72px);border-bottom:1px solid rgba(237,231,221,.12)}
+  .eb{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--piedra);margin-bottom:24px}
+  h1{font-size:clamp(44px,8vw,120px);font-weight:300;font-stretch:115%;letter-spacing:-.04em;line-height:.9;text-transform:uppercase}
+  h2{font-size:clamp(28px,4vw,52px);font-weight:300;font-stretch:112%;text-transform:uppercase;letter-spacing:-.03em;margin-bottom:28px}
+  p{max-width:640px;color:rgba(237,231,221,.75)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .tile{border-radius:6px;padding:40px;display:grid;place-items:center;min-height:260px}
+  .tile img{max-width:100%;max-height:150px}
+  .sw{border-radius:6px;padding:20px;min-height:170px;display:flex;flex-direction:column;justify-content:flex-end;font-size:13px;letter-spacing:.08em}
+  .sw b{font-weight:500;text-transform:uppercase;letter-spacing:.16em}
+  .type{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px}
+  .big{font-size:96px;line-height:1}
+</style>
+</head>
+<body>
+<section>
+  <div class="eb">Manual de identidad · v1</div>
+  <h1>Daniel Balza<br/><em>Arquitectura</em></h1>
+  <p style="margin-top:28px">Una marca sobria y monumental, inspirada en la Mérida andina: la piedra, la madera, la niebla y el cobre de los techos al atardecer.</p>
+</section>
+
+<section>
+  <h2>El <em>monograma</em></h2>
+  <p>La D y la B comparten estructura: se entrelazan como dos volúmenes que se apoyan, trazados con línea constante como en un plano. La línea inferior es el horizonte — el terreno sobre el que todo se construye. La D evoca un arco/portal; la B, dos niveles apilados.</p>
+  <div class="grid" style="margin-top:40px">
+    <div class="tile" style="background:var(--arena)"><img src="/brand/logo-mark-dark.svg" alt="Monograma oscuro"/></div>
+    <div class="tile" style="background:var(--grafito)"><img src="/brand/logo-mark-light.svg" alt="Monograma claro"/></div>
+    <div class="tile" style="background:var(--cobre)"><img src="/brand/logo-mark-dark.svg" alt="Monograma sobre cobre"/></div>
+  </div>
+  <div class="grid" style="margin-top:16px">
+    <div class="tile" style="background:var(--arena)"><img src="/brand/logo-horizontal-dark.svg" alt="Logo horizontal oscuro"/></div>
+    <div class="tile" style="background:var(--carbon);border:1px solid rgba(237,231,221,.12)"><img src="/brand/logo-horizontal-light.svg" alt="Logo horizontal claro"/></div>
+  </div>
+</section>
+
+<section>
+  <h2>Paleta</h2>
+  <div class="grid">
+    <div class="sw" style="background:#151412;border:1px solid rgba(237,231,221,.15)"><b>Carbón</b>#151412 · fondo principal</div>
+    <div class="sw" style="background:#ede7dd;color:#151412"><b>Arena</b>#EDE7DD · texto / fondo claro</div>
+    <div class="sw" style="background:#c8794a;color:#151412"><b>Cobre</b>#C8794A · acento</div>
+    <div class="sw" style="background:#6e6a62"><b>Piedra</b>#6E6A62 · secundario</div>
+    <div class="sw" style="background:#d9d2c5;color:#151412"><b>Niebla</b>#D9D2C5 · fondo alterno</div>
+    <div class="sw" style="background:#4f5a45"><b>Musgo</b>#4F5A45 · acento secundario</div>
+  </div>
+</section>
+
+<section>
+  <h2>Tipografía</h2>
+  <div class="type">
+    <div><div class="eb">Principal · Archivo (ancho expandido)</div><div class="big" style="font-weight:300;font-stretch:118%">AaBb</div><p style="margin-top:12px">Títulos en mayúscula, peso 300, tracking negativo. Textos en peso 350.</p></div>
+    <div><div class="eb">Acento · Instrument Serif itálica</div><div class="big"><em>Montaña</em></div><p style="margin-top:12px">Para una palabra emocional dentro de un título, siempre en cobre.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Tono</h2>
+  <p>Pausado, seguro y cercano. Frases cortas, imágenes amplias, mucho aire. Se habla de luz, paisaje y materia, no de “soluciones integrales”.</p>
+</section>
+</body>
+</html>
